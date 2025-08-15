@@ -12,6 +12,9 @@
     </header>
 
     <div class="container">
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
         <form method="POST" action="{{ url_for('predict') }}" enctype="multipart/form-data">
             <h2>Select an X-Ray Image:</h2>
             <input type="file" name="file" required>
