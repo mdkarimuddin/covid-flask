@@ -52,3 +52,21 @@ python app.py
 Hosting the model
 - Best practice: upload the large `model.h5` to a GitHub Release, S3, or other cloud storage and link to it in this README. That way users can download the weights without using LFS.
 
+## 👤 Author
+
+**Md Karim Uddin, PhD**  
+PhD Veterinary Medicine | MEng Big Data Analytics  
+Postdoctoral Researcher, University of Helsinki
+
+- GitHub: [@mdkarimuddin](https://github.com/mdkarimuddin)
+- LinkedIn: [Md Karim Uddin, PhD](https://www.linkedin.com/in/md-karim-uddin-phd-aa87649a/)
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+**⭐ Star this repo if you found it useful!**
+
+*Built to demonstrate Flask deployment of deep learning models for medical image classification.*

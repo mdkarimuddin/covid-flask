@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  covid-flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: covid-xray-classifier
+    ports:
+      - "5000:5000"
+    volumes:
+      # Mount model files if needed (optional)
+      - ./model_fixed.keras:/app/model_fixed.keras:ro
+      - ./model.h5:/app/model.h5:ro
+    environment:
+      - FLASK_ENV=production
+      - FLASK_APP=app.py
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:5000')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
