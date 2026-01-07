@@ -1,7 +1,11 @@
-# covid-flask
+# COVID-19 X-ray Classification Flask App
 
+Small Flask web application to serve a chest X-ray classifier. Upload an X-ray image and get a COVID-19 Positive/Negative prediction.
 
-Small Flask app to serve a chest X-ray classifier. Upload an X-ray image and get a Positive/Negative prediction.
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![ML](https://img.shields.io/badge/ML-Deep%20Learning%20%7C%20CNN-orange.svg)
+![Framework](https://img.shields.io/badge/Framework-Flask-lightgrey.svg)
 
 Why this repo won't run out-of-the-box
 - The trained model weights (`model.h5`) are large and are tracked via Git LFS in the original repo; the clone here contains only a small LFS pointer file. You need to fetch the real model file before the app can make predictions.

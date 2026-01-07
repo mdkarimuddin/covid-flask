@@ -1,18 +1,26 @@
-target_size = (256, 256)
 from flask import Flask, request, render_template
 import os
 import sys
-
+import io
+import numpy as np
+import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
-from efficientnet.keras import preprocess_input
-import numpy as np
-import io
-import tensorflow as tf
 
 # Monkey-patch keras backend to fix 'sigmoid' attribute error in efficientnet
 import keras
 keras.backend.sigmoid = tf.keras.activations.sigmoid
+
+# Try to import efficientnet preprocess_input, with fallback
+try:
+    from efficientnet.keras import preprocess_input
+except ImportError:
+    try:
+        from tensorflow.keras.applications.efficientnet import preprocess_input
+    except ImportError:
+        # Fallback preprocessing function
+        def preprocess_input(x):
+            return (x / 255.0 - 0.5) * 2.0
 
 # Initialize the Flask app
 app = Flask(__name__)
@@ -68,5 +76,5 @@ def predict():
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
 
